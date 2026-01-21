@@ -3,67 +3,80 @@ import { Card } from "@/components/ui/card";
 import { 
   MapPin, 
   Users, 
-  Beer, 
   DollarSign, 
   MessageCircle, 
   Shield, 
   Smartphone,
   ArrowRight,
   Check,
-  Zap
+  Zap,
+  Bluetooth,
+  Activity,
+  Bell,
+  TrendingDown,
+  Clock,
+  Car
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
   const features = [
     {
+      icon: Bluetooth,
+      title: "Bluetooth Breathalyzer Sync",
+      description: "Connect your breathalyzer device instantly. Real-time BAC readings sync directly to your app."
+    },
+    {
+      icon: Activity,
+      title: "Live BAC Monitoring",
+      description: "Track your blood alcohol content throughout the night with beautiful charts and trends."
+    },
+    {
+      icon: Bell,
+      title: "Smart Alerts",
+      description: "Get notified when you're approaching your limit. Your squad sees when you need backup."
+    },
+    {
       icon: MapPin,
-      title: "Live Location Sharing",
-      description: "Always know where your squad is. Real-time GPS tracking keeps everyone connected."
+      title: "Squad Location",
+      description: "Always know where your friends are. Real-time GPS keeps everyone connected."
     },
     {
-      icon: Users,
-      title: "Squad Status",
-      description: "See who's vibing, who needs a break, and who's ready to move to the next spot."
-    },
-    {
-      icon: Beer,
-      title: "Drink Tracker",
-      description: "Keep tabs on your intake. Smart reminders help you pace yourself throughout the night."
-    },
-    {
-      icon: DollarSign,
-      title: "Expense Splitting",
-      description: "Track who paid for what. Settle up easily the next day with automatic calculations."
-    },
-    {
-      icon: MessageCircle,
-      title: "Group Chat",
-      description: "Dedicated chat for your night out. No more lost messages in cluttered group chats."
+      icon: Car,
+      title: "Safe Ride Home",
+      description: "One-tap Uber integration when your BAC says it's time to call it a night."
     },
     {
       icon: Shield,
       title: "Safety First",
-      description: "Emergency alerts, safe ride home features, and check-in reminders for peace of mind."
+      description: "Emergency alerts, check-in reminders, and peace of mind for you and your friends."
     }
   ];
 
   const steps = [
     {
       number: "01",
-      title: "Create a Session",
-      description: "Start a new night out session and invite your friends to join."
+      title: "Pair Your Breathalyzer",
+      description: "Connect any Bluetooth breathalyzer device in seconds. We support all major brands."
     },
     {
       number: "02",
-      title: "Squad Up",
-      description: "Everyone joins with one tap. Instantly connected and ready to go."
+      title: "Create a Session",
+      description: "Start a night out and invite your squad. Everyone's BAC levels sync automatically."
     },
     {
       number: "03",
-      title: "Hit the Town",
-      description: "Track locations, split bills, and stay connected all night long."
+      title: "Blow & Know",
+      description: "Take readings anytime. Your squad can see when someone needs water or a break."
     }
+  ];
+
+  const compatibleDevices = [
+    "BACtrack",
+    "Alcohawk", 
+    "DrinkMate",
+    "SoberLink",
+    "Floome"
   ];
 
   return (
@@ -73,7 +86,7 @@ const Landing = () => {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Beer className="h-5 w-5 text-primary-foreground" />
+              <Activity className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="font-display font-bold text-xl">Blackout Buddy</span>
           </div>
@@ -95,19 +108,19 @@ const Landing = () => {
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in">
-            <Zap className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Your squad's new best friend</span>
+            <Bluetooth className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Breathalyzer Connected</span>
           </div>
           
           <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-            Never Lose Your
+            Your BAC,
             <br />
-            <span className="gradient-text">Squad Again</span>
+            <span className="gradient-text">Your Squad's Safety</span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            The ultimate night out companion. Track locations, split bills, coordinate moves, 
-            and keep everyone safe — all in one app.
+            Connect your Bluetooth breathalyzer and share real-time BAC readings with your squad. 
+            Know when to slow down, when to hydrate, and when to call it a night.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
@@ -125,54 +138,62 @@ const Landing = () => {
             </Link>
           </div>
 
-          {/* App Preview */}
+          {/* Breathalyzer Preview */}
           <div className="mt-16 relative animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="glass rounded-2xl border border-border/30 p-2 max-w-4xl mx-auto shadow-2xl shadow-primary/10">
-              <div className="rounded-xl overflow-hidden bg-background/50 aspect-[16/10] flex items-center justify-center">
-                <div className="grid grid-cols-3 gap-4 p-8 w-full max-w-2xl">
-                  <Card className="glass p-4 col-span-2">
-                    <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-5 w-5 text-primary" />
-                      <span className="font-semibold">Live Map</span>
+            <div className="glass rounded-2xl border border-border/30 p-6 max-w-3xl mx-auto shadow-2xl shadow-primary/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* BAC Display */}
+                <Card className="glass p-6 relative overflow-hidden">
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                    <span className="text-xs text-success font-medium">Connected</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Bluetooth className="h-5 w-5 text-primary" />
+                    <span className="font-semibold">BACtrack Pro</span>
+                  </div>
+                  <div className="text-center py-6">
+                    <div className="text-6xl font-display font-bold gradient-text mb-2">0.04</div>
+                    <div className="text-sm text-muted-foreground">Blood Alcohol Content</div>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-sm">
+                    <div className="px-3 py-1 rounded-full bg-success/20 text-success font-medium">
+                      Safe Zone
                     </div>
-                    <div className="h-32 rounded-lg bg-muted/50 flex items-center justify-center">
-                      <span className="text-muted-foreground text-sm">Interactive Map View</span>
-                    </div>
-                  </Card>
-                  <Card className="glass p-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Users className="h-4 w-4 text-secondary" />
-                      <span className="font-semibold text-sm">Squad</span>
-                    </div>
-                    <div className="space-y-2">
-                      {[1, 2, 3].map((i) => (
-                        <div key={i} className="h-8 rounded bg-muted/50" />
-                      ))}
-                    </div>
-                  </Card>
-                  <Card className="glass p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Beer className="h-4 w-4 text-warning" />
-                      <span className="font-semibold text-sm">Drinks</span>
-                    </div>
-                    <div className="text-2xl font-bold text-primary">3</div>
-                  </Card>
-                  <Card className="glass p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <DollarSign className="h-4 w-4 text-success" />
-                      <span className="font-semibold text-sm">Spent</span>
-                    </div>
-                    <div className="text-2xl font-bold text-success">$47</div>
-                  </Card>
-                  <Card className="glass p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <MessageCircle className="h-4 w-4 text-primary" />
-                      <span className="font-semibold text-sm">Chat</span>
-                    </div>
-                    <div className="text-2xl font-bold">12</div>
-                  </Card>
-                </div>
+                  </div>
+                </Card>
+                
+                {/* Squad BAC Status */}
+                <Card className="glass p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Users className="h-5 w-5 text-secondary" />
+                    <span className="font-semibold">Squad Status</span>
+                  </div>
+                  <div className="space-y-3">
+                    {[
+                      { name: "You", bac: "0.04", status: "safe" },
+                      { name: "Mike", bac: "0.06", status: "safe" },
+                      { name: "Sarah", bac: "0.08", status: "moderate" },
+                      { name: "Jake", bac: "0.02", status: "safe" },
+                    ].map((member) => (
+                      <div key={member.name} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xs font-bold text-primary-foreground">
+                            {member.name[0]}
+                          </div>
+                          <span className="text-sm font-medium">{member.name}</span>
+                        </div>
+                        <div className={`text-sm font-mono font-bold ${
+                          member.status === "safe" ? "text-success" : 
+                          member.status === "moderate" ? "text-warning" : "text-destructive"
+                        }`}>
+                          {member.bac}%
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
@@ -183,17 +204,32 @@ const Landing = () => {
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </section>
 
+      {/* Compatible Devices */}
+      <section className="py-12 px-4 border-y border-border/30 bg-muted/20">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-center text-sm text-muted-foreground mb-6">Works with all major Bluetooth breathalyzers</p>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {compatibleDevices.map((device) => (
+              <div key={device} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <Bluetooth className="h-4 w-4" />
+                <span className="font-medium">{device}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 px-4 relative">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-              Everything You Need for an
+              Smart Drinking,
               <br />
-              <span className="gradient-text">Epic Night Out</span>
+              <span className="gradient-text">Safer Nights</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From finding your friends to splitting the tab, we've got you covered.
+              Your breathalyzer becomes a safety network for your entire squad.
             </p>
           </div>
 
@@ -223,7 +259,7 @@ const Landing = () => {
               How It <span className="gradient-text">Works</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Get started in seconds. No complicated setup required.
+              Connect, sync, and stay safe together.
             </p>
           </div>
 
@@ -244,23 +280,123 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* BAC Zones Explainer */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
-                Why Your Squad
+                Know Your
                 <br />
-                <span className="gradient-text">Needs This</span>
+                <span className="gradient-text">Limits</span>
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Our color-coded system makes it easy to understand where you stand. 
+                Your squad sees the same status, so everyone can look out for each other.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { range: "0.00 - 0.05", label: "Safe Zone", color: "success", desc: "You're good! Stay hydrated." },
+                  { range: "0.05 - 0.08", label: "Caution", color: "warning", desc: "Slow down, consider water." },
+                  { range: "0.08+", label: "Stop", color: "destructive", desc: "Time to switch to water and food." }
+                ].map((zone) => (
+                  <div key={zone.range} className="flex items-start gap-3">
+                    <div className={`w-3 h-3 rounded-full bg-${zone.color} flex-shrink-0 mt-1.5`} />
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-sm">{zone.range}</span>
+                        <span className={`text-${zone.color} font-semibold`}>{zone.label}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{zone.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <Card className="glass border-border/30 p-8">
+                <div className="text-center mb-6">
+                  <TrendingDown className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <h3 className="font-display font-semibold text-lg">Tonight's Trend</h3>
+                </div>
+                {/* Simplified BAC Chart Visualization */}
+                <div className="relative h-40 flex items-end justify-around gap-2 px-4">
+                  {[0.02, 0.04, 0.06, 0.05, 0.04, 0.03].map((bac, i) => (
+                    <div key={i} className="flex flex-col items-center gap-1 flex-1">
+                      <div 
+                        className={`w-full rounded-t-sm transition-all ${
+                          bac < 0.05 ? "bg-success" : bac < 0.08 ? "bg-warning" : "bg-destructive"
+                        }`}
+                        style={{ height: `${(bac / 0.08) * 100}%` }}
+                      />
+                      <span className="text-xs text-muted-foreground">{9 + i}pm</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-muted-foreground">Last reading: 2 min ago</span>
+                  </div>
+                  <Button size="sm" variant="ghost" className="gap-1">
+                    <Activity className="h-4 w-4" />
+                    Test Now
+                  </Button>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety Features */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <Card className="glass border-border/30 p-6 rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-warning/20 flex items-center justify-center">
+                    <Bell className="h-5 w-5 text-warning" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Squad Alert</div>
+                    <div className="text-xs text-muted-foreground">Just now</div>
+                  </div>
+                </div>
+                <p className="text-sm mb-3">Sarah just hit 0.08 BAC. Someone should check in! 💧</p>
+                <div className="flex gap-2">
+                  <Button size="sm" variant="secondary" className="flex-1">Message</Button>
+                  <Button size="sm" variant="ghost" className="flex-1">
+                    <MapPin className="h-4 w-4 mr-1" />
+                    Locate
+                  </Button>
+                </div>
+              </Card>
+              <Card className="glass border-border/30 p-4 -mt-4 ml-8 -rotate-2">
+                <div className="flex items-center gap-3">
+                  <Car className="h-5 w-5 text-primary" />
+                  <div className="flex-1">
+                    <div className="font-semibold text-sm">Need a ride?</div>
+                    <div className="text-xs text-muted-foreground">One tap to call an Uber</div>
+                  </div>
+                  <Button size="sm">Book</Button>
+                </div>
+              </Card>
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
+                Your Squad Has
+                <br />
+                <span className="gradient-text">Your Back</span>
               </h2>
               <div className="space-y-4">
                 {[
-                  "No more \"where are you?\" texts every 5 minutes",
-                  "Stop losing friends in crowded venues",
-                  "End the awkward morning-after Venmo math",
-                  "Keep everyone safe without being the mom friend",
-                  "Actually remember where you went (and what you spent)"
+                  "Automatic alerts when someone's BAC gets too high",
+                  "One-tap Uber when it's time to head home",
+                  "Squad-wide visibility keeps everyone accountable",
+                  "Emergency contacts notified if something goes wrong",
+                  "Morning recap shows the night's journey safely"
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -270,33 +406,6 @@ const Landing = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="relative">
-              <Card className="glass border-border/30 p-8 rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary" />
-                    <div>
-                      <div className="font-semibold">Mike</div>
-                      <div className="text-xs text-muted-foreground">2 min ago</div>
-                    </div>
-                  </div>
-                  <p className="text-sm">"I'm at the bar near the back, come find me! 🍻"</p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3" />
-                    <span>The Rusty Nail • 50ft away</span>
-                  </div>
-                </div>
-              </Card>
-              <Card className="glass border-border/30 p-6 absolute -bottom-4 -left-4 -rotate-3">
-                <div className="flex items-center gap-3">
-                  <div className="text-3xl">🍺</div>
-                  <div>
-                    <div className="font-semibold">Round 3</div>
-                    <div className="text-xs text-muted-foreground">Sarah's buying!</div>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>
@@ -308,11 +417,14 @@ const Landing = () => {
           <Card className="glass border-border/30 p-12 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
             <div className="relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
+                <Bluetooth className="h-8 w-8 text-primary" />
+              </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Ready to Never Lose Your Squad?
+                Ready to Drink Smarter?
               </h2>
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                Install Blackout Buddy now and make your next night out legendary.
+                Connect your breathalyzer and make every night out safer for your whole squad.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link to="/install">
@@ -338,12 +450,12 @@ const Landing = () => {
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Beer className="h-4 w-4 text-primary-foreground" />
+              <Activity className="h-4 w-4 text-primary-foreground" />
             </div>
             <span className="font-display font-semibold">Blackout Buddy</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2026 Blackout Buddy. Drink responsibly. 🍻
+            © 2026 Blackout Buddy. Know your limits. 🍻
           </p>
         </div>
       </footer>
